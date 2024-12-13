@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>berkaymimari.com</title>
+<title>Berkay Özenel</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,9 +13,11 @@
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="w3-bar-item w3-button"><b>BYÖ</b> MİMARİ</a>
-    <!-- Float links to the right. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
+    <a href="#home" class="w3-bar-item w3-button" style="font-size: 20px;"><b>BYÖ</b> MİMARİ</a>
+    <!-- Hamburger Menü Butonu (Ekran küçülünce gösterilecek) -->
+    <a href="javascript:void(0);" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="toggleNav()">&#9776;</a>
+    <!-- Navbar Links (Ekran küçülünce gizlenir) -->
+    <div class="w3-right w3-hide-small w3-large" id="navbar-links">
       <a href="#projects" class="w3-bar-item w3-button">Projeler</a>
       <a href="#about" class="w3-bar-item w3-button">Hakkımızda</a>
       <a href="#contact" class="w3-bar-item w3-button">İletişim</a>
@@ -23,11 +25,24 @@
   </div>
 </div>
 
-<!-- Header -->
+<!-- Sidebar (Ekran küçülünce açılacak) -->
+<div id="mySidebar" class="w3-sidebar w3-bar-block w3-white w3-card-4 w3-animate-left" style="display:none; position:fixed; top:0; left:0; height:100%; width:250px;">
+  <a href="#projects" class="w3-bar-item w3-button">Projeler</a>
+  <a href="#about" class="w3-bar-item w3-button">Hakkımızda</a>
+  <a href="#contact" class="w3-bar-item w3-button">İletişim</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-large w3-padding-16" onclick="toggleNav()">&times;</a>
+</div>
+
+<!-- Header with Slider -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1400px;" id="home">
-  <img class="w3-image" src="./w3images/header.png" alt="Architecture" style="width: 1400px; height: 800px;">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BYÖ MİMARİ</b></span></h1>
+  <div class="w3-display-container">
+    <!-- Slider Images -->
+    <img class="slider-image" src="./w3images/header.png" alt="Architecture 1">
+    <img class="slider-image" src="./w3images/header2.jpg" alt="Architecture 2" style="display: none;">
+    <img class="slider-image" src="./w3images/header3.jpg" alt="Architecture 3" style="display: none;">
+    <div class="w3-display-middle w3-margin-top w3-center">
+      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min" style="border-radius: 30px;"><b>BYÖ</b>🔗</b>MİMARİ</b></span></h1>
+    </div>
   </div>
 </header>
 
@@ -43,25 +58,25 @@
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Sıcak Yaz Günleri Evi</div>
-        <img src="./w3images/summer.png" alt="House" style="width:100%">
+        <img class="slider-image-pic" src="./w3images/summer.png" alt="House">
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Tuğla Evler</div>
-        <img src="./w3images/tugla.jpg" alt="House" style="width:100%">
+        <img class="slider-image-pic" src="./w3images/tugla.jpg" alt="House" >
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Yenilenmiş Evler</div>
-        <img src="./w3images/yenilenmis.jpg" alt="House" style="width: 350px; height: 235px;">
+        <img class="slider-image-pic" src="./w3images/yenilenmis.jpg" alt="House" >
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Çiftlik Evler</div>
-        <img src="./w3images/ciftlik.jpg" alt="House" style="width:100%">
+        <img class="slider-image-pic" src="./w3images/ciftlik.jpg" alt="House" >
       </div>
     </div>
   </div>
@@ -70,25 +85,25 @@
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Bungalov Evler</div>
-        <img src="./w3images/bungalov.jpg" alt="House" style="width:350px; height: 235px;">
+        <img class="slider-image-pic" src="./w3images/bungalov.jpg" alt="House" >
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Bağ Evleri</div>
-        <img src="./w3images/bagevi.png" alt="House" style="width:350px; height: 235px;">
+        <img class="slider-image-pic" src="./w3images/bagevi.png" alt="House" >
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Trabzon Yayla Evleri</div>
-        <img src="./w3images/trabzon.jpg_large" alt="House" style="width:350px; height: 235px;">
+        <img class="slider-image-pic" src="./w3images/trabzon.jpg_large" alt="House" >
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Modern Ofis</div>
-        <img src="./w3images/ofis.png" alt="House" style="width:350px; height: 235px;">
+        <img class="slider-image-pic" src="./w3images/ofis.png" alt="House" >
       </div>
     </div>
   </div>
@@ -105,7 +120,7 @@
 
   <div class="w3-row-padding w3-grayscale">
     <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="./w3images/mimar4.jpg" alt="John" style="width:350px; height: 235px;">
+      <img class="slider-image-pic" src="./w3images/berkay.jpg" alt="John">
       <h3>Berkay Ö.</h3>
       <p class="w3-opacity">CEO & Founder</p>
       <p>Pamukkale Üniversitesi / Denizli</p>
@@ -116,35 +131,35 @@
       </p>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="./w3images/mimar1.jpg" alt="Jane" style="width:350px; height: 235px;">
-      <h3>Mike Ross</h3>
+      <img class="slider-image-pic" src="./w3images/eray.jpg" alt="Jane">
+      <h3>Eray H.</h3>
       <p class="w3-opacity">Mimar</p>
-      <p>Harvard University / Cambridge</p>
+      <p>Pamukkale Üniversitesi / Denizli</p>
       <p>
-        <a href="contact-mike.html">
+        <a href="contact-eray.html">
           <button class="button button2">İletişime Geç</button>
         </a>
       </p>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="./w3images/mimar2.jpg" alt="Mike" style="width:350px; height: 235px;">
-      <h3>Jane Doe</h3>
-      <p class="w3-opacity">Mimar</p>
-      <p>Oxford Üniversitesi</p>
-      <p>
-        <a href="contact-jane.html">
-          <button class="button button2">İletişime Geç</button>
-        </a>
-      </p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="./w3images/mimar3.jpg" alt="Dan" style="width:350px; height: 235px;">
-      <h3>Dan Star</h3>
+      <img class="slider-image-pic" src="./w3images/mustafa.png" alt="Dan">
+      <h3>Mustafa T.</h3>
       <p class="w3-opacity">Mimar</p>
       <p>Tokyo Üniversitesi</p>
       <p>
-        <a href="contact-dan.html">
+        <a href="contact-mustafa.html">
           <button class="button button2">İletişime Geç</button>
+        </a>
+      </p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img class="slider-image-pic" src="./w3images/archimind.webp" alt="archimind">
+      <h3>ArchiMind</h3>
+      <p class="w3-opacity">Yapay Zeka Mimar</p>
+      <p>Yapay Zeka Üniversitesi</p>
+      <p>
+        <a href="index.html#about">
+          <button class="button button2">Geliştiriliyor...</button>
         </a>
       </p>
     </div>
@@ -154,16 +169,17 @@
   <div class="w3-container w3-padding-32" id="contact">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">İLETİŞİM</h3>
     <p>Haydi iletişime geçelim ve bir sonraki projeniz hakkında konuşalım.</p>
-    <form action="/action_page.php" target="_blank">
-      <input class="w3-input w3-border" type="text" placeholder="Ad - Soyad" required name="Name">
-      <input class="w3-input w3-section w3-border" type="text" placeholder="E-Posta" required name="Email">
-      <input class="w3-input w3-section w3-border" type="text" placeholder="Konu" required name="Subject">
-      <input class="w3-input w3-section w3-border" type="text" placeholder="Mesaj" required name="Comment">
+    <form action="mailto:berkayozenel1@gmail.com" method="POST" enctype="text/plain">
+      <input class="w3-input w3-border" style="border-radius: 15px;" type="text" placeholder="Ad - Soyad" required name="Name">
+      <input class="w3-input w3-section w3-border" style="border-radius: 15px;" type="email" placeholder="E-Posta" required name="Email">
+      <input class="w3-input w3-section w3-border" style="border-radius: 15px;" type="text" placeholder="Konu" required name="Subject">
+      <textarea class="w3-input w3-section w3-border" style="border-radius: 15px;" placeholder="Mesaj" required name="Message"></textarea>
       <button class="submit-button" style="vertical-align:middle" type="submit">
         <span><i class="fa fa-paper-plane"></i> MESAJ GÖNDER</span>
       </button>
     </form>
   </div>
+
   
 <!-- Image of location/map -->
 <div class="w3-container" style="display: flex; justify-content: center; align-items: center; height: 60vh;">
@@ -171,7 +187,7 @@
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84902.45646675884!2d29.037159224602664!3d37.738301409741084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c64cd2bfffffff%3A0x7c21102ab89254ac!2sPamukkale%20%C3%9Cniversitesi!5e0!3m2!1str!2str!4v1733757413451!5m2!1str!2str" 
       width="1000" 
       height="450" 
-      style="border:0;" 
+      style="border-radius: 25px;" 
       allowfullscreen="" 
       loading="lazy" 
       referrerpolicy="no-referrer-when-downgrade">
@@ -183,8 +199,10 @@
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-16">
-  <p>berkaymimari.com / Tüm Hakları Saklıdır</p>
+  <p>byömimari.com 🔗 Tüm Hakları Saklıdır</p>
 </footer>
+
+<script src="app.js"></script>
 
 </body>
 </html>
